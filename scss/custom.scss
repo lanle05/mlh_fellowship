@@ -1,0 +1,111 @@
+// Custom.scss
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$primary: #292929;
+$success: #048848;
+$danger: #EF2C2C;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../node_modules/bootstrap/scss/variables";
+
+
+// 4. Include any default map overrides here
+// Create your own map
+$custom-colors: (
+  
+  "cream": #F9F3EE,
+  "brand-green": #00D45F,
+  "light-greenn": #27AE60,
+  "accent": #276EF1,
+  "yellow": #FFD433,
+  "grey": #f3f5f9,
+  "grey-blue": #6B7A99,
+  "darkgray1":#7D8089,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// 5. Include remainder of required parts
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/helpers";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../node_modules/bootstrap/scss/utilities/api";
+// 8. Add additional custom code here
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+.contain {
+  height: 100%;
+  margin-left: calc(50% - 260px);
+  @include transition(1s ease);
+}
+.rbc-row-content-scrollable {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .rbc-row-content-scroll-container {
+    height: 100%;
+    overflow-y: scroll;
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+.display {
+  display: block;
+}
+@include media-breakpoint-down(sm) {
+  .sidebar {
+    width: 75px;
+  }
+  .contain {
+    width: 100%;
+    margin-left: calc(90% - 270px);
+  }
+  .dispaly {
+    display: none;
+  }
+}
+
+
+@include media-breakpoint-up(md) {
+  .contain {
+    width: calc(100% - 260px);
+    margin-left: calc(34% - 260px);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .contain {
+    width: calc(100% - 260px);
+    margin-left: calc(34% - 260px);
+  }
+}
+
+
+
+
+// @include MQ(M) {
+  
+// }
